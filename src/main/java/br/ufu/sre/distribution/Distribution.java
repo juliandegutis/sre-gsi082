@@ -1,5 +1,17 @@
 package br.ufu.sre.distribution;
 
-public interface Distribution {
+import java.util.Scanner;
 
+public interface Distribution {
+		
+	double mttf( Scanner scanner );
+	
+	double reliability( Scanner scanner );
+	
+	double unreliability( Scanner scaner );
+	
+	double failureRate( Scanner scanner );
+	
+	double cumulativeFailureRate( Scanner scanner );
+	
 }
