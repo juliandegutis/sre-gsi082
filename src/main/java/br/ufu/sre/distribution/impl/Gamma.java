@@ -7,33 +7,33 @@ import br.ufu.sre.distribution.Distribution;
 public class Gamma implements Distribution {
 
 	@Override
-	public double mttf(Scanner scanner) {
+	public Double mttf(Scanner scanner) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0d;
 	}
 
 	@Override
-	public double reliability(Scanner scanner) {
+	public Double reliability(Scanner scanner) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0d;
 	}
 
 	@Override
-	public double unreliability(Scanner scaner) {
+	public Double unreliability(Scanner scaner) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0d;
 	}
 
 	@Override
-	public double failureRate(Scanner scanner) {
+	public Double failureRate(Scanner scanner) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0d;
 	}
 
 	@Override
-	public double cumulativeFailureRate(Scanner scanner) {
+	public Double cumulativeFailureRate(Scanner scanner) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0d;
 	}
 
 }

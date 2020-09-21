@@ -9,40 +9,58 @@ public class Poisson implements Distribution {
 	public static final double NEPER = 2.7182818284590452353602874;
 	
 	@Override
-	public double mttf(Scanner scanner) {
+	public Double mttf(Scanner scanner) {
 		
-		System.out.println( "Informe o valor de lambda:" );
-		double l = scanner.nextDouble();
-		
-		return l;
+		try {
+			System.out.println( "Informe o valor de lambda:" );
+			double l = scanner.nextDouble();
+			
+			return l;
+		} catch( Exception ex ) {
+			System.out.println( "Input errado." );
+			scanner.next();
+			return mttf( scanner );
+		}
 	}
 
 	@Override
-	public double reliability(Scanner scanner) {
-		
-		System.out.println( "Informe o valor de lambda: " );
-		double l = scanner.nextDouble();
-		System.out.println( "Informe o valor de t: " );
-		double t = scanner.nextDouble();
-
-		double result = Math.pow( NEPER, ( (-l) * t ) );
-		
-		return result;
+	public Double reliability(Scanner scanner) {
+		try {
+			System.out.println( "Informe o valor de lambda: " );
+			double l = scanner.nextDouble();
+			
+			double t;
+			do {
+				System.out.println( "Informe o valor do tempo de missão 't': " );
+				t = scanner.nextDouble();
+				if( t < 0 ) {
+					System.out.println( "O valor do tempo deve ser positivo" );
+				}
+			} while( t < 0 );
+	
+			double result = Math.pow( NEPER, ( (-l) * t ) );
+			
+			return result;
+		} catch( Exception ex ) {
+			System.out.println( "Input errado." );
+			scanner.next();
+			return mttf( scanner );
+		}
 	}
 
 	@Override
-	public double unreliability(Scanner scaner) {
-		return 0;
+	public Double unreliability(Scanner scaner) {
+		return 0d;
 	}
 
 	@Override
-	public double failureRate(Scanner scanner) {
-		return 0;
+	public Double failureRate(Scanner scanner) {
+		return 0d;
 	}
 
 	@Override
-	public double cumulativeFailureRate(Scanner scanner) {
-		return 0;
+	public Double cumulativeFailureRate(Scanner scanner) {
+		return 0d;
 	}
 
 }

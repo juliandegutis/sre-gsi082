@@ -11,7 +11,7 @@ public class ReliabilityEngine {
 		Menu menu = new Menu();
 		Scanner scanner = new Scanner( System.in );
 		//R(t), U(t), MTTF, h(t), H(t)	
-		Integer option;
+		Integer option = 0;
 		do {
 			System.out.println( "" );
 			System.out.println( "**************************************" );
@@ -24,7 +24,13 @@ public class ReliabilityEngine {
 			System.out.println( "6 - Sair" );
 			System.out.println( "Opção: " );
 			
-			option = scanner.nextInt();
+			try {
+				option = scanner.nextInt();
+			} catch( Exception ex ) {
+				System.out.println( "Opção inválida" );
+				scanner.next();
+				continue;
+			}
 			
 			if( menu.getOptions().get( option ) != null ) {
 				menu.getOptions().get( option ).requestInfo( scanner );
