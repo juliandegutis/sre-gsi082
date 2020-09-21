@@ -20,6 +20,9 @@ public class FailureRate extends DistributionType implements Metric {
 		do {
 			System.out.println( "Selecione a distribuição:" );
 			System.out.println( "1 - Exponencial" );
+			System.out.println( "2 - Normal" );
+			System.out.println( "3 - Lognormal" );
+			System.out.println( "4 - Weibull" );
 
 	
 			try {
@@ -35,6 +38,18 @@ public class FailureRate extends DistributionType implements Metric {
 		Double result;
 		if( 1 == option ) {
 			result = this.exponencial.failureRate( scanner );
+			if( result == null ) return;
+			System.out.println( "Resultado: " + result );
+		} else if( 2 == option ) {
+			result = this.normal.failureRate( scanner );
+			if( result == null ) return;
+			System.out.println( "Resultado: " + result );
+		} else if( 3 == option ) {
+			result = this.lognormal.failureRate( scanner );
+			if( result == null ) return;
+			System.out.println( "Resultado: " + result );
+		} else if( 4 == option ) {
+			result = this.weibull.failureRate( scanner );
 			if( result == null ) return;
 			System.out.println( "Resultado: " + result );
 		} else {

@@ -3,3 +3,4 @@
 .git
 .settings
 target
+/dependency-reduced-pom.xml
