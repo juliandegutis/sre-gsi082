@@ -223,6 +223,8 @@ public class Lognormal implements Distribution {
 				
 				sum = sum + result;
 				
+				it = it + 0.0001;
+				
 			}
 			
 			return sum;
