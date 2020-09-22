@@ -180,6 +180,10 @@ public class Weibull implements Distribution {
 			} while( t <= 0 );
 			
 			Double result = new Double(0);
+			/**
+			 * Iteração com integral (ht) | 0->t
+			 * h(t) = (B * t^(B-1)) / a^B
+			 */
 			for( int i = 0 ; i <= t ; i++ ) {
 				result = result + ( ( b / Math.pow(a, b) ) * ( Math.pow(i, b) / b ) );
 			}

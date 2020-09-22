@@ -82,6 +82,10 @@ public class Exponencial implements Distribution {
 				}
 			} while( t < 0 );
 			
+			/**
+			 * Iteração com integral (ht) | 0->t 
+			 * h(t) = lambda
+			 */
 			Double result = new Double(0);
 			for( int i = 0 ; i <= t ; i++ ) {
 				result = result + (i);
