@@ -1,5 +1,6 @@
 package br.ufu.sre.metric.impl;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 import br.ufu.sre.distribution.DistributionType;
@@ -8,6 +9,8 @@ import br.ufu.sre.metric.Metric;
 public class CumulativeFailureRate extends DistributionType implements Metric {
 
 	public static final String CUMULATIVE_FAILURE_RATE = "CUMULATIVE_FAILURE_RATE";
+	
+	private DecimalFormat df = new DecimalFormat( "0.000000" );
 	
 	public CumulativeFailureRate() {
 		super();
@@ -36,19 +39,19 @@ public class CumulativeFailureRate extends DistributionType implements Metric {
 		if ( 1 == option ) {
 			result = this.exponencial.cumulativeFailureRate(scanner);
 			if( result == null ) return;
-			System.out.println( "Resultado: " + result );
+			System.out.println( "Resultado: " + df.format( result ) );
 		} else if ( 2 == option ) {
 			result = this.normal.cumulativeFailureRate( scanner );
 			if( result == null ) return;
-			System.out.println( "Resultado: " + result );
+			System.out.println( "Resultado: " + df.format( result ) );
 		} else if ( 3 == option ) {
 			result = this.lognormal.cumulativeFailureRate( scanner );
 			if( result == null ) return;
-			System.out.println( "Resultado: " + result );
+			System.out.println( "Resultado: " + df.format( result ) );
 		} else if ( 4 == option ) {
 			result = this.weibull.cumulativeFailureRate( scanner );
 			if( result == null ) return;
-			System.out.println( "Resultado: " + result );
+			System.out.println( "Resultado: " + df.format( result ) );
 		} else {
 			System.out.println( "Opção inválida" );
 			return;

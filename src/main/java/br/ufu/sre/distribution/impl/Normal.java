@@ -43,7 +43,7 @@ public class Normal implements Distribution {
 			
 			double t;
 			do {
-				System.out.println( "Informe o tempo de missão t: " );
+				System.out.println( "Informe o tempo de missão em horas (t): " );
 				t = scanner.nextDouble();
 				if( t < 0 ) {
 					System.out.println( "O valor do tempo deve ser poisitivo." );
@@ -100,7 +100,7 @@ public class Normal implements Distribution {
 			
 			double t;
 			do {
-				System.out.println( "Informe o tempo de missão t: " );
+				System.out.println( "Informe o tempo de missão em horas (t): " );
 				t = scanner.nextDouble();
 				if( t < 0 ) {
 					System.out.println( "O valor do tempo deve ser poisitivo." );
@@ -163,7 +163,7 @@ public class Normal implements Distribution {
 			
 			double t;
 			do {
-				System.out.println( "Informe o tempo de missão t: " );
+				System.out.println( "Informe o tempo de missão em horas (t): " );
 				t = scanner.nextDouble();
 				if( t < 0 ) {
 					System.out.println( "O valor do tempo deve ser poisitivo." );

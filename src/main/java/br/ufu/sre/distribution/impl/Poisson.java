@@ -31,7 +31,7 @@ public class Poisson implements Distribution {
 			
 			double t;
 			do {
-				System.out.println( "Informe o valor do tempo de missão 't': " );
+				System.out.println( "Informe o valor do tempo de missão em horas 't': " );
 				t = scanner.nextDouble();
 				if( t < 0 ) {
 					System.out.println( "O valor do tempo deve ser positivo" );
