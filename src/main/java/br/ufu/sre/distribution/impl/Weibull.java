@@ -165,6 +165,14 @@ public class Weibull implements Distribution {
 		
 		try {
 			
+			Integer option = 0;
+			
+			System.out.println( "Selecione o tipo de distribuição:" );
+			System.out.println( "1 - Bi-paramétrica" );
+			System.out.println( "2 - Tri-paramétrica" );
+	
+			option = scanner.nextInt();
+			
 			System.out.println( "Digite o valor de alpha: " );
 			double a = scanner.nextDouble();
 			System.out.println( "Digite o valor de beta: " );
@@ -179,13 +187,33 @@ public class Weibull implements Distribution {
 				}
 			} while( t <= 0 );
 			
-			Double result = new Double(0);
-			/**
-			 * Iteração com integral (ht) | 0->t
-			 * h(t) = (B * t^(B-1)) / a^B
-			 */
-			for( int i = 0 ; i <= t ; i++ ) {
-				result = result + ( ( b / Math.pow(a, b) ) * ( Math.pow(i, b) / b ) );
+			double result = 0;
+			if( 1 == option ) {	
+			
+				double i = 0.001;
+				while( i <= t ) {
+					result = result + ( b * Math.pow( i, ( b - 1 ) ) ) / Math.pow(a, b);
+					i = i + 0.001;
+				}
+				
+			} else if( 2 == option ) {
+				double g;
+				do {
+					System.out.println( "Digite o valor de gamma: " );
+					g = scanner.nextDouble();
+					if( g < 0 ) {
+						System.out.println( "O valor de gamma deve ser > 0" );
+					}
+				} while( g < 0 );
+				
+				double i = 0.000;
+				while( i <= t ) {
+					result = result + ( b * Math.pow( (i - g), ( b - 1 ) ) ) / Math.pow(a, b);		
+					i = i + 0.001;
+				}
+					
+			} else {
+				return null;
 			}
 			
 			return result;

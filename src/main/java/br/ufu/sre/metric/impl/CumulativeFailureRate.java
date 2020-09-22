@@ -19,7 +19,9 @@ public class CumulativeFailureRate extends DistributionType implements Metric {
 		do {
 			System.out.println( "Selecione a distribuição:" );
 			System.out.println( "1 - Exponencial" );
-			System.out.println( "2 - Weibull" );
+			System.out.println( "2 - Normal" );
+			System.out.println( "3 - Lognormal" );
+			System.out.println( "4 - Weibull" );
 	
 			try {
 				option = scanner.nextInt();
@@ -36,6 +38,14 @@ public class CumulativeFailureRate extends DistributionType implements Metric {
 			if( result == null ) return;
 			System.out.println( "Resultado: " + result );
 		} else if ( 2 == option ) {
+			result = this.normal.cumulativeFailureRate( scanner );
+			if( result == null ) return;
+			System.out.println( "Resultado: " + result );
+		} else if ( 3 == option ) {
+			result = this.lognormal.cumulativeFailureRate( scanner );
+			if( result == null ) return;
+			System.out.println( "Resultado: " + result );
+		} else if ( 4 == option ) {
 			result = this.weibull.cumulativeFailureRate( scanner );
 			if( result == null ) return;
 			System.out.println( "Resultado: " + result );
