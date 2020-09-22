@@ -68,8 +68,32 @@ public class Exponencial implements Distribution {
 
 	@Override
 	public Double cumulativeFailureRate(Scanner scanner) {
-		// TODO Auto-generated method stub
-		return 0d;
+		
+		try {	
+			System.out.println( "Informe o valor de lambda: " );
+			double l = scanner.nextDouble();
+			
+			double t;
+			do {
+				System.out.println( "Informe o tempo de missão t: " );
+				t = scanner.nextDouble();
+				if( t < 0 ) {
+					System.out.println( "O valor do tempo deve ser poisitivo." );
+				}
+			} while( t < 0 );
+			
+			Double result = new Double(0);
+			for( int i = 0 ; i <= t ; i++ ) {
+				result = result + (i);
+			}
+			
+			return result;
+			
+		} catch( Exception ex ) {
+			System.out.println( "Input errado." );
+			scanner.next();
+			return cumulativeFailureRate( scanner );
+		}
 	}
 
 }

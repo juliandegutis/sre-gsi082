@@ -33,7 +33,7 @@ public class Unreliability extends DistributionType implements Metric {
 				option = scanner.nextInt();
 			} catch( Exception ex ) {
 				System.out.println( "Opção inválida" );
-				scanner.remove();
+				scanner.next();
 				continue;
 			}	
 		} while( option == 0 );

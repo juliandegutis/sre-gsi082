@@ -14,7 +14,35 @@ public class CumulativeFailureRate extends DistributionType implements Metric {
 	}
 
 	public void requestInfo(Scanner scanner) {
-		// TODO Auto-generated method stub
+		
+		Integer option = 0;
+		do {
+			System.out.println( "Selecione a distribuição:" );
+			System.out.println( "1 - Exponencial" );
+			System.out.println( "2 - Weibull" );
+	
+			try {
+				option = scanner.nextInt();
+			} catch( Exception ex ) {
+				System.out.println( "Opção inválida" );
+				scanner.next();
+				continue;
+			}	
+		} while( option == 0 );
+
+		Double result;
+		if ( 1 == option ) {
+			result = this.exponencial.cumulativeFailureRate(scanner);
+			if( result == null ) return;
+			System.out.println( "Resultado: " + result );
+		} else if ( 2 == option ) {
+			result = this.weibull.cumulativeFailureRate( scanner );
+			if( result == null ) return;
+			System.out.println( "Resultado: " + result );
+		} else {
+			System.out.println( "Opção inválida" );
+			return;
+		}
 		
 	}
 	

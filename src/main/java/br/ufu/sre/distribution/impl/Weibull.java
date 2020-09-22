@@ -162,7 +162,36 @@ public class Weibull implements Distribution {
 
 	@Override
 	public Double cumulativeFailureRate(Scanner scanner) {
-		return 0d;
+		
+		try {
+			
+			System.out.println( "Digite o valor de alpha: " );
+			double a = scanner.nextDouble();
+			System.out.println( "Digite o valor de beta: " );
+			double b = scanner.nextDouble();
+			
+			double t;
+			do {
+				System.out.println( "Digite o valor do tempo de missão (t): " );
+				t = scanner.nextDouble();
+				if( t < 0 ) {
+					System.out.println( "O tempo de missão deve ser > 0" );
+				}
+			} while( t <= 0 );
+			
+			Double result = new Double(0);
+			for( int i = 0 ; i <= t ; i++ ) {
+				result = result + ( ( b / Math.pow(a, b) ) * ( Math.pow(i, b) / b ) );
+			}
+			
+			return result;
+			
+		} catch( Exception ex ) {
+			System.out.println( "Input errado." );
+			scanner.next();
+			return cumulativeFailureRate( scanner );
+		}
+		
 	}
 
 }
